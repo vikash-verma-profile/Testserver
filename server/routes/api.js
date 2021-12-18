@@ -35,38 +35,38 @@ router.get('/events', (req, res) => {
   let events = [
     {
       "_id": "1",
-      "name": "Auto Expo",
-      "description": "lorem ipsum",
+      "name": "Event 1",
+      "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled",
       "date": "2012-04-23T18:25:43.511Z"
     },
     {
       "_id": "2",
-      "name": "Auto Expo",
-      "description": "lorem ipsum",
+      "name": "Event 2",
+      "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it",
       "date": "2012-04-23T18:25:43.511Z"
     },
     {
       "_id": "3",
-      "name": "Auto Expo",
-      "description": "lorem ipsum",
+      "name": "Event 3",
+      "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it",
       "date": "2012-04-23T18:25:43.511Z"
     },
     {
       "_id": "4",
-      "name": "Auto Expo",
-      "description": "lorem ipsum",
+      "name": "Event 4",
+      "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it",
       "date": "2012-04-23T18:25:43.511Z"
     },
     {
       "_id": "5",
-      "name": "Auto Expo",
-      "description": "lorem ipsum",
+      "name": "Event 5",
+      "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it",
       "date": "2012-04-23T18:25:43.511Z"
     },
     {
       "_id": "6",
-      "name": "Auto Expo",
-      "description": "lorem ipsum",
+      "name": "Event 6",
+      "description": "It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it",
       "date": "2012-04-23T18:25:43.511Z"
     }
   ]
@@ -116,18 +116,19 @@ router.get('/special', verifyToken, (req, res) => {
 })
 
 router.post('/register', (req, res) => {
-  let userData = req.body
-  let user = new User(userData)
+  let userData = req.body;
+  let user = new User(userData);
   user.save((err, registeredUser) => {
     if (err) {
       console.log(err)
     } else {
       let payload = { subject: registeredUser._id }
-      let token = jwt.sign(payload, 'secretKey')
-      res.status(200).send({ token })
+     let token = jwt.sign(payload, 'secretKey')
+      res.status(200).send({ token });
     }
   })
 })
+
 
 router.post('/login', (req, res) => {
   let userData = req.body
